@@ -1,0 +1,80 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:GUI.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
+        x:Class="GUI.Views.BossWindow"
+        x:DataType="viewModels:BossWindowViewModel"
+        Width="1200" Height="800"
+        RequestedThemeVariant="Light"
+        Icon="/Assets/employee.ico"
+        Title="BossWindow">
+
+    <StackPanel VerticalAlignment="Center">
+        <Label Content="{Binding WelcomeMessage}"
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+               FontSize="26" />
+        <Button HorizontalAlignment="Center" VerticalAlignment="Center"
+                Width="100" Height="30" Margin="0 20"
+                Background="LightGray"
+                BorderBrush="Black" BorderThickness="1"
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                Content="Logout"
+                Command="{Binding LogoutAction}" />
+        <TabControl Height="600"
+                    Margin="40 20">
+            <TabItem Header="Present Employees">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Margin="20 20">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center"
+                          RowDefinitions="*" ColumnDefinitions="*,*">
+                        <DataGrid Grid.Column="0"
+                                  ItemsSource="{Binding PresentEmployees, Mode=Default}"
+                                  SelectedItem="{Binding SelectedEmployee}"
+                                  IsReadOnly="True"
+                                  GridLinesVisibility="All"
+                                  HorizontalScrollBarVisibility="Hidden"
+                                  Width="500"
+                                  Margin="50 0"
+                                  BorderBrush="Black"
+                                  BorderThickness="1">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Username" Binding="{Binding Username}" Width="*" />
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
+                                <DataGridTextColumn Header="Salary" Binding="{Binding Salary}" Width="*" />
+                                <DataGridTextColumn Header="Grade" Binding="{Binding Grade}" Width="*" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Border Grid.Column="1"
+                                HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Margin="50 0">
+                            <StackPanel>
+                                <Label Content="Task title"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       FontSize="20" />
+                                <TextBox Text="{Binding TaskTitle, Mode=TwoWay}"
+                                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                                         Width="200" Height="30"
+                                         Margin="0 20" />
+                                <Label Content="Task description"
+                                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                                        FontSize="20" />
+                                <TextBox Text="{Binding TaskDescription, Mode=TwoWay}"
+                                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                                         Width="200" Height="100"
+                                         Margin="0 20" />
+                                <Button HorizontalAlignment="Center" VerticalAlignment="Center"
+                                        Height="30" Margin="0 20"
+                                        Background="LightGray" BorderBrush="Black" BorderThickness="1"
+                                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                        Content="Assign Task"
+                                        Command="{Binding AssignTaskAction}" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Window>

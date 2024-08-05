@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="GUI/App.axaml" value="GUI/GUI.csproj" />
+        <entry key="GUI/Views/BossWindow.axaml" value="GUI/GUI.csproj" />
+        <entry key="GUI/Views/EmployeeWindow.axaml" value="GUI/GUI.csproj" />
+        <entry key="GUI/Views/LoginWindow.axaml" value="GUI/GUI.csproj" />
+        <entry key="GUI/Views/MainWindow.axaml" value="GUI/GUI.csproj" />
+        <entry key="Views/MainWindow.axaml" value="EmployeeWatch.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
